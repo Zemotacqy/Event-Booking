@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 const app = express();
-const port = process.env.PORT || 8000;
+const port = 9805;
 
 const graphqlSchema = require('./graphql/schema/index.js');
 const graphqlResolvers = require('./graphql/resolvers/index.js');

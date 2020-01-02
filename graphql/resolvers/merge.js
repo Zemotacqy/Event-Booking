@@ -30,7 +30,7 @@ const user = userId => {
         });
 }
 
-const events = eventIds => {
+const events = async eventIds => {
     try{
         const events = await Events.find({_id:eventIds});
         events.sort((a,b) => {
