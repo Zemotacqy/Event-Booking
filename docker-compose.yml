@@ -5,6 +5,8 @@ services:
         container_name: event-booking-frontend
         restart: always
         build: ./frontend/
+        volumes: 
+            - ./:/usr/Projects/EventBooker/Frontend
         ports:
             - '9804:9804'
         links: 
@@ -13,6 +15,8 @@ services:
         container_name: event-booking
         restart: always
         build: .
+        volumes: 
+            - ./:/usr/Projects/EventBooker
         ports:
             - '9805:9805'
         links: 

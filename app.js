@@ -31,7 +31,7 @@ app.use('/graphql', graphqlhttp({
     rootValue: graphqlResolvers,
     graphiql: true
 }));
-mongoose.connect('mongodb://mongo:27017').then(() => {
+mongoose.connect('mongodb://mongo:27017/eventbooker').then(() => {
     console.log("DB conncected");
     app.listen(port, () => {
         console.log("Server running at port: " + port);
