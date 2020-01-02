@@ -1,0 +1,24 @@
+version: '3'
+
+services: 
+    frontend:
+        container_name: event-booking-frontend
+        restart: always
+        build: ./frontend/
+        ports:
+            - '9804:9804'
+        links: 
+            - backend
+    backend:
+        container_name: event-booking
+        restart: always
+        build: .
+        ports:
+            - '9805:9805'
+        links: 
+            - mongo
+    mongo:
+        container_name: mongo
+        image: mongo
+        ports:
+            - '27017:27017'

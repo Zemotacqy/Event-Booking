@@ -10,7 +10,7 @@ const port = 9805;
 const graphqlSchema = require('./graphql/schema/index.js');
 const graphqlResolvers = require('./graphql/resolvers/index.js');
 const isAuth = require('./middleware/isAuth.js');
-
+const mongoAtlasUrl = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0-zaynt.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`;
 
 app.use(bodyParser.json());
 
@@ -31,7 +31,7 @@ app.use('/graphql', graphqlhttp({
     rootValue: graphqlResolvers,
     graphiql: true
 }));
-mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0-zaynt.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`).then(() => {
+mongoose.connect('mongodb://mongo:27017').then(() => {
     console.log("DB conncected");
     app.listen(port, () => {
         console.log("Server running at port: " + port);
